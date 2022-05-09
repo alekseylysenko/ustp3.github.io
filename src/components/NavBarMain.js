@@ -1,18 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Link } from "react-router-dom";
+
 import {  useNavigate} from 'react-router-dom';
 
 
 function NavBarMain(){
     let navigate =  useNavigate();
     const goInstructions = () => {
-        navigate("/instructions");
+        navigate("ustp3.github.io/instructions");
       };
     const goFirmwares = () => {
-    navigate("/firmwares");
+    navigate("ustp3.github.io/firmwares");
     };
     const goBurgerMenu = () => {
-        navigate("/burger-menu");
+        navigate("ustp3.github.io/burger-menu");
         };
     const goHome = () => {
         navigate("/ustp3.github.io");
