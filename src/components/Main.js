@@ -1,4 +1,4 @@
-import { HashRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 import Admin from './Admin.js';
 import Firmwares from './Firmwares.js';
@@ -9,16 +9,17 @@ import InstructionSinglePage from './InstructionSinglePage.js';
 
 function Main(){
     return(
-        <HashRouter basename="/ustp3.github.io">  
-
-                    <Route path="/ustp3.github.io" component={<Home />} />           
+        <BrowserRouter>
+                <Routes>       
+                    <Route path="/ustp3.github.io" element={<Home />} />           
                     <Route path="/ustp3.github.io/admin" element={<Admin />} />
                     <Route path="/ustp3.github.io/firmwares" element={<Firmwares />} />    
                     <Route path="/ustp3.github.io/instructions" element={<Instructions />} />   
                     <Route path="/ustp3.github.io/instructions/:instructionId" element={<InstructionSinglePage />} />   
                     <Route path="/ustp3.github.io/burger-menu" element={<BurgerMenu />} />  
-        
-        </HashRouter>  
+                     
+                </Routes>
+        </BrowserRouter>  
        
 
     );
