@@ -14,12 +14,15 @@ function NavBarMain(){
     const goBurgerMenu = () => {
         navigate("/burger-menu");
         };
+    const goHome = () => {
+        navigate("/ustp3.github.io");
+        };
     return(
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
-                <Link className="navbar-item" to="/">
+                <a className="navbar-item" onClick={goHome}>
                 <img src={require('./rtkg.png')} width="112" height="28" alt='logo'/>
-                </Link>
+                </a>
                 <a  role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={goBurgerMenu}>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -29,9 +32,9 @@ function NavBarMain(){
 
             <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-start">
-                    <Link className="navbar-item" to='/'>
+                    <a className="navbar-item" onClick={goHome}>
                         Главная
-                    </Link>
+                    </a>
                   
                     <a className="navbar-item" onClick={goFirmwares} >
                         Прошивки
