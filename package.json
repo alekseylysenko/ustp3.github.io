@@ -2,7 +2,7 @@
   "name": "react-rostelecom",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://alekseylysenko.github.io/ustp3.github.io/",
+  "proxy": "https://alekseylysenko.github.io",
   "homepage": "http://alekseylysenko.github.io/ustp3.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
