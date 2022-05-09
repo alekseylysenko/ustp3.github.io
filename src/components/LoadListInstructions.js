@@ -3,7 +3,6 @@ import { useState , useEffect } from 'react';
 import {  useNavigate, Link} from 'react-router-dom';
 import axios from 'axios';
 function LoadListInstructions(){
-    let navigate =  useNavigate();
   
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
