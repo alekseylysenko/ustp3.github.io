@@ -10,7 +10,7 @@ function BurgerMenu(){
         navigate("/firmwares");
     };
     const goHome = () => {
-        navigate("ustp3.github.io");
+        navigate("/ustp3.github.io");
         };
     return(
         <div >
