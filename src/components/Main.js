@@ -11,13 +11,13 @@ function Main(){
     return(
         <HashRouter>
                        
-                    <Route path="ustp3.github.io" element={<Home />} />           
+                    <Route path="/ustp3.github.io" element={<Home />} />           
                     <Route path="/ustp3.github.io/admin" element={<Admin />} />
                     <Route path="/ustp3.github.io/firmwares" element={<Firmwares />} />    
                     <Route path="/ustp3.github.io/instructions" element={<Instructions />} />   
                     <Route path="/ustp3.github.io/instructions/:instructionId" element={<InstructionSinglePage />} />   
                     <Route path="/ustp3.github.io/burger-menu" element={<BurgerMenu />} />  
-                     
+                
               
         </HashRouter>  
        
