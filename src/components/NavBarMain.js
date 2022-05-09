@@ -6,16 +6,16 @@ import {  useNavigate} from 'react-router-dom';
 function NavBarMain(){
     let navigate =  useNavigate();
     const goInstructions = () => {
-        navigate("/instructions");
+        navigate("/ustp3.github.io/instructions");
       };
     const goFirmwares = () => {
-    navigate("/firmwares");
+    navigate("/ustp3.github.io/firmwares");
     };
     const goBurgerMenu = () => {
-        navigate("/burger-menu");
+        navigate("/ustp3.github.io/burger-menu");
         };
     const goHome = () => {
-        navigate("/");
+        navigate("/ustp3.github.io");
         };
     return(
         <nav className="navbar" role="navigation" aria-label="main navigation">
