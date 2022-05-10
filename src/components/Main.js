@@ -16,7 +16,9 @@ function Main(){
                     <Route path="/ustp3.github.io/firmwares" element={<Firmwares />} />    
                     <Route path="/ustp3.github.io/instructions" element={<Instructions />} />   
                     <Route path="/ustp3.github.io/instructions/:instructionId" element={<InstructionSinglePage />} />   
-                    <Route path="/ustp3.github.io/burger-menu" element={<BurgerMenu />} />                     
+                    <Route path="/ustp3.github.io/burger-menu" element={<BurgerMenu />} />    
+                    <Route path="*" element={<Home />} />   
+                         
                 </Routes>
         </BrowserRouter>  
        
