@@ -4,10 +4,10 @@ import {  useNavigate} from 'react-router-dom';
 function BurgerMenu(){
     let navigate =  useNavigate();
     const goInstructions = () => {
-        navigate("/ustp3.github.io/instructions");
+        navigate("/instructions");
       };
     const goFirmwares = () => {
-        navigate("/ustp3.github.io/firmwares");
+        navigate("/firmwares");
     };
     const goHome = () => {
         navigate("/ustp3.github.io");
