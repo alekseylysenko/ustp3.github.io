@@ -11,7 +11,7 @@ function LoadListInstructions(){
       
     useEffect(() => {  
       
-        axios.get(`https://firmfare.herokuapp.com/api/posts/`)
+        axios.get(`https://firmfare.herokuapp.com/api/posts/?format=json`)
         .then(response => response.data)
         .then((result) => {
             setItems(result);

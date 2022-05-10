@@ -25,7 +25,14 @@ function LoadListTehnology(){
     } else {
         return(
             <div >
-                {items.map( (tehnology) => (<div className=''>{tehnology.title}<hr/></div>) )}              
+                <div class="tabs">
+                    <ul>
+                        {items.map( (tehnology) => {
+                            if(tehnology.title !== 'Доп. материалы' )
+                             {return (<li class=""><a>{tehnology.title}</a></li>)}
+                        })}    
+                    </ul>
+                </div>                         
             </div>
         )
     }
