@@ -1,10 +1,12 @@
 
 import { useState , useEffect} from 'react';
 import axios from 'axios';
-function LoadListTehnology(){
+
+function LoadListTehnology(props){
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
+  
     useEffect(() => {        
         axios.get(`https://firmfare.herokuapp.com/api/technology/?format=json`)
         .then(response => response.data)
@@ -17,21 +19,23 @@ function LoadListTehnology(){
             setError(error);
         }
     )
-    }, [])
+    },[]);
     if (error) {
         return <div>Ошибка: {error.message}</div>;
     } else if (!isLoaded) {
         return <div>Загрузка...</div>;
-    } else {
+    } else {        
         return(
             <div >
                 <div class="tabs">
-                    <ul>
-                        {items.map( (tehnology) => {
-                            if(tehnology.title !== 'Доп. материалы' )
-                             {return (<li class=""><a>{tehnology.title}</a></li>)}
-                        })}    
+                    <ul>                    
+                        {
+                            items.map( (tehnology) => (<li class=""><a onClick={() => props.updateId(tehnology.id)}>{tehnology.title}</a></li>))
+                        }                        
                     </ul>
+                    <div className='box'>
+                   
+                </div>
                 </div>                         
             </div>
         )

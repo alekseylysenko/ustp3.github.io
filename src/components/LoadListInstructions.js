@@ -32,7 +32,8 @@ function LoadListInstructions(){
         
         return(
             <div >
-                {items.map( (post) => (<div><Link to={`/ustp3.github.io/instructions/${post.id}`} key={post.id}>{post.title}</Link><hr/></div>) )}         
+                {items.map( (post) => (<div><Link to={`/ustp3.github.io/instructions/${post.id}`} key={post.id}>{post.title}</Link><hr/></div>) )}     
+                    
             </div>
         )
     }
