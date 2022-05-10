@@ -9,7 +9,7 @@ import InstructionSinglePage from './InstructionSinglePage.js';
 
 function Main(){
     return(
-        <BrowserRouter  basename="/ustp3.github.io" >
+        <BrowserRouter  basename="/" >
                 <Routes>       
                     <Route path="/ustp3.github.io" element={<Home />} />           
                     <Route path="/ustp3.github.io/admin" element={<Admin />} />
