@@ -29,19 +29,15 @@ function LoadListCategoryFirmware(props){
         return(
             <div className='container is-fluid mt-4'>
                  <ul> 
-                    {
-                       
-                             items.map( tehnology => {
-                                  if(tehnology.technology === props.itemId){
-                                    return(
-                                         <li class=""><a>{tehnology.title}</a></li>
-                                    )
-                                   
-                                }
-                            
-                             }
-                               
-                             )
+                    {                      
+                        items.map( tehnology => {
+                            if(tehnology.technology === props.itemId){
+                            return(
+                                    <li class=""><a>{tehnology.title}</a></li>
+                                )                           
+                            }                  
+                        }                       
+                        )
                     }
                  </ul> 
             </div>
