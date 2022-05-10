@@ -6,13 +6,13 @@ import {  useNavigate} from 'react-router-dom';
 function NavBarMain(){
     let navigate =  useNavigate();
     const goInstructions = () => {
-        navigate("/ustp3.github.io/instructions");
+        navigate("/instructions");
       };
     const goFirmwares = () => {
-    navigate("/ustp3.github.io/firmwares");
+    navigate("/firmwares");
     };
     const goBurgerMenu = () => {
-        navigate("/ustp3.github.io/burger-menu");
+        navigate("/burger-menu");
         };
     const goHome = () => {
         navigate("/ustp3.github.io");
