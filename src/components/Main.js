@@ -11,7 +11,7 @@ function Main(){
     return(
         <BrowserRouter>
                 <Routes>       
-                    <Route path="/ustp3.github.io" element={<Home />} />           
+                    <Route path="/" element={<Home />} />           
                     <Route path="/ustp3.github.io/admin" element={<Admin />} />
                     <Route path="/ustp3.github.io/firmwares" element={<Firmwares />} />    
                     <Route path="/ustp3.github.io/instructions" element={<Instructions />} />   
