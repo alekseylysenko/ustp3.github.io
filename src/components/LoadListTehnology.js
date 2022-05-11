@@ -27,10 +27,10 @@ function LoadListTehnology(props){
     } else {        
         return(
             <div >
-                <div class="tabs">
+                <div className="tabs">
                     <ul>                    
                         {
-                            items.map( (tehnology) => (<li class=""><a onClick={() => props.updateId(tehnology.id)}>{tehnology.title}</a></li>))
+                            items.map( (tehnology) => (<li key={tehnology.id}><a onClick={() => props.updateId(tehnology.id)}>{tehnology.title}</a></li>))
                         }                        
                     </ul>
                     <div className='box'>

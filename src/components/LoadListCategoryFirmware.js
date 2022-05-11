@@ -2,13 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function LoadListCategoryFirmware(props){
-    const [itemId, setItemId] = useState(1);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     
     useEffect(() => {       
-        setItemId(props.itemId);
+
         axios.get(`https://firmfare.herokuapp.com/api/category/?format=json`)
         .then(response => response.data)
         .then((result) =>{
@@ -28,12 +27,13 @@ function LoadListCategoryFirmware(props){
     } else { 
         return(
             <div className='container is-fluid mt-4'>
-                 <ul> 
+                 <p>Производитель </p>
+                 <ul className="mt-2"> 
                     {                      
-                        items.map( tehnology => {
-                            if(tehnology.technology === props.itemId){
+                        items.map( category => {
+                            if(category.technology === props.itemId){
                             return(
-                                    <li class=""><a>{tehnology.title}</a></li>
+                                    <li key={category.id}><a onClick={()=> props.categoryId(category.id)}>{category.title}</a></li>
                                 )                           
                             }                  
                         }                       
