@@ -33,9 +33,7 @@ function LoadListTehnology(props){
                             items.map( (tehnology) => (<li key={tehnology.id}><a onClick={() => props.updateId(tehnology.id)}>{tehnology.title}</a></li>))
                         }                        
                     </ul>
-                    <div className='box'>
-                   
-                </div>
+                  
                 </div>                         
             </div>
         )
