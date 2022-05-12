@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {useState} from 'react';
-import {  useNavigate, } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import BurgerMenu from './BurgerMenu.js';
 
 function NavBarMain(){
@@ -16,6 +16,9 @@ function NavBarMain(){
     const goBurgerMenu = () => {
         navigate("/burger-menu");
         };
+    const goLogin = () => {
+        navigate("/login")
+    }
     const goHome = () => {
         navigate("/ustp3.github.io");
         };
@@ -92,7 +95,7 @@ function NavBarMain(){
                                 <strong>Регистрация</strong>
                             </a>
                          
-                            <a className="button is-light">
+                            <a className="button is-light" onClick={goLogin}>
                                 Вход
                             </a>
                         </div>

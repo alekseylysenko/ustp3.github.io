@@ -6,6 +6,7 @@ import Instructions from './Instructions.js';
 import Home from './Home.js';
 import BurgerMenu from './BurgerMenu.js';
 import InstructionSinglePage from './InstructionSinglePage.js';
+import LoginPage from './LoginPage';
 
 function Main(){
     return(
@@ -18,7 +19,7 @@ function Main(){
                     <Route path="/instructions/:instructionId/" element={<InstructionSinglePage />} />   
                     <Route path="/burger-menu/" element={<BurgerMenu />} />    
                     <Route path="*" element={<Home />} />   
-                         
+                    <Route path="/login" element={<LoginPage />} />       
                 </Routes>
         </HashRouter>  
        
