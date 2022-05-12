@@ -31,7 +31,7 @@ function LoadListFirmwares(props){
                         items.map(firmware => {
                             if(firmware.category === props.categoryId){
                             return(
-                                    <li key={firmware.id}><a href={firmware.url}>{firmware.title}</a></li>
+                                    <><li key={firmware.id} className="hero is-small"><a href={firmware.url}>{firmware.title}</a></li><hr/></>
                                 );                          
                             }                  
                         }                       

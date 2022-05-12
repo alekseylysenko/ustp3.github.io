@@ -32,7 +32,7 @@ function LoadListInstructions(){
         
         return(
             <div >
-                {items.map( (post) => (<div><Link to={`/instructions/${post.id}`} key={post.id}>{post.title}</Link><hr/></div>) )}     
+                {items.map( (post) => (<div key={post.id}><Link to={`/instructions/${post.id}`} key={post.id}>{post.title}</Link><hr/></div>) )}     
 
             </div>
         )

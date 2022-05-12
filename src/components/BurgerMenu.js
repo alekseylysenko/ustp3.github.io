@@ -12,21 +12,9 @@ function BurgerMenu(){
     const goHome = () => {
         navigate("/ustp3.github.io");
         };
+
     return(
-        <div >
-             <nav className="navbar" role="navigation" aria-label="main navigation">
-             <div className="navbar-brand ">
-                <a className="navbar-item" onClick={goHome}>
-                <img src={require('./rtkg.png')} width="112" height="28" alt='logo'/>
-                </a>
-                <a role="button" className="navbar-burger is-active" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"  onClick={() => navigate(-1)} >
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                </a>
-            </div>
-            </nav>
-            <hr/>
+        <div>
             <div className='container box'>
             <div  className='is-flex is-justify-content-center '>
                 <a onClick={goHome}>Главная</a>
