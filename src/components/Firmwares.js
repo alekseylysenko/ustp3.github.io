@@ -4,7 +4,7 @@ import LoadListCategoryFirmware from './LoadListCategoryFirmware.js';
 import LoadListFirmwares from './LoadListFirmwares.js';
 import { useState} from 'react';
 
-function Firmwares(){
+function Firmwares(props){
     const [itemId, setItemId] = useState(1);
     const [categoryId, setCategoryId] = useState();
     const updateId = (id) => {
@@ -16,7 +16,7 @@ function Firmwares(){
      }
     return(
         <div>
-            <NavBarMain />
+            <NavBarMain auth={props.auth} setAuth={props.setAuth}/>
             <div className='container mt-4  is-fluid'>
                 <div className='box'>
                     <LoadListTehnology  updateId={updateId}/>

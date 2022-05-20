@@ -1,10 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {  useNavigate } from 'react-router-dom';
 import BurgerMenu from './BurgerMenu.js';
 
-function NavBarMain(){
+function NavBarMain(props){
     let navigate =  useNavigate();
+    const [auth, setAuth] = useState();
+    
+    useEffect(() => {
+        setAuth(localStorage.getItem('isAuth') === 'true');
+
+    },[])
     const[click, setClick] = useState(false);
     let burgerButton;
     const goInstructions = () => {
@@ -13,15 +19,22 @@ function NavBarMain(){
     const goFirmwares = () => {
     navigate("/firmwares");
     };
-    const goBurgerMenu = () => {
-        navigate("/burger-menu");
-        };
     const goLogin = () => {
-        navigate("/login")
+        navigate("/login",)
+    }
+    const goLogout = () => {
+        props.setAuth(false);
+        localStorage.setItem('my-name', '');
+        localStorage.setItem('isAuth', false);
+        navigate("/logout"); 
+    }
+    const goAdmin= () => {
+        navigate("/profile");
     }
     const goHome = () => {
         navigate("/ustp3.github.io");
         };
+        
     const divStyle = click === false ? {visibility: "hidden", position: "absolute"} : {visibility: "visible", position: "absolute", zIndex: 2,  width: '100%'};
       
     if(click === false) {       
@@ -36,9 +49,11 @@ function NavBarMain(){
            <span aria-hidden="true"></span>
            </a>  }        
         
+           
+ 
     
-        
     return(
+      
         <>
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
@@ -64,6 +79,14 @@ function NavBarMain(){
                     <a className="navbar-item" onClick={goInstructions} >
                     Инструкции
                     </a>
+                 {
+                     (auth === true)
+                     ?<a className="navbar-item" onClick={goAdmin} >
+                        Профиль
+                    </a> 
+                    : <></>
+                 }
+                    
 
                     <div className="navbar-item has-dropdown is-hoverable">
                         <a className="navbar-link" >
@@ -91,20 +114,25 @@ function NavBarMain(){
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
+                             
+                         {   (auth === true)                                          
+                           ? <a className="button is-light" onClick={goLogout}>
+                                Выход
+                            </a>
+                           : <><a className="button is-light" onClick={goLogin}>
+                                Вход
+                            </a> 
                             <a className="button is-info" >
                                 <strong>Регистрация</strong>
-                            </a>
-                         
-                            <a className="button is-light" onClick={goLogin}>
-                                Вход
-                            </a>
+                            </a>  </>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
         <div style={divStyle}>
-        <BurgerMenu />
+            <BurgerMenu auth={props.auth} setAuth={props.setAuth} />
         </div>
         </>
     );

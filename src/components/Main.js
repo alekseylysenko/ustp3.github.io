@@ -1,25 +1,53 @@
 import { HashRouter, Route, Routes} from "react-router-dom";
-
-import Admin from './Admin.js';
+import {useEffect, useState} from 'react';
+import Profile from './Profile.jsx';
 import Firmwares from './Firmwares.js';
 import Instructions from './Instructions.js';
 import Home from './Home.js';
 import BurgerMenu from './BurgerMenu.js';
 import InstructionSinglePage from './InstructionSinglePage.js';
 import LoginPage from './LoginPage';
+import axios from 'axios';
+import Logout from './Logout';
 
 function Main(){
+    const [auth, setAuth] = useState('false');
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+
+
+    const handleSubmit = () =>{
+        axios.post('https://firmwarertk.herokuapp.com/auth/jwt/create/', {
+            username: login,
+            password: password
+          })
+          .then((response) => {
+            localStorage.setItem('my-name', response.data.access);
+            localStorage.setItem('isAuth', 'true');
+            setAuth( localStorage.getItem('isAuth') === 'true')         
+            console.log(auth)
+          },(error) => {
+            setError(error)     
+            }
+        );
+    }
+  
     return(
         <HashRouter  basename="/" >
                 <Routes>       
-                    <Route path="/ustp3.github.io/" element={<Home />} />           
-                    <Route path="/admin/" element={<Admin />} />
-                    <Route path="/firmwares/" element={<Firmwares />} />    
-                    <Route path="/instructions/" element={<Instructions />} />   
-                    <Route path="/instructions/:instructionId/" element={<InstructionSinglePage />} />   
-                    <Route path="/burger-menu/" element={<BurgerMenu />} />    
-                    <Route path="*" element={<Home />} />   
-                    <Route path="/login" element={<LoginPage />} />       
+                    <Route path="/ustp3.github.io" element={<Home auth={auth} setAuth={setAuth}/> } />
+                    {
+                        (auth === true)
+                        ?<Route path="/profile" element={<Profile auth={auth} setAuth={setAuth}/> } />
+                        :<Route path="/logout" element={<Logout auth={auth} setAuth={setAuth}/>} />
+                    }                                   
+                    <Route path="/firmwares" element={<Firmwares auth={auth} setAuth={setAuth}/>} />    
+                    <Route path="/instructions" element={<Instructions auth={auth} setAuth={setAuth}/>} />   
+                    <Route path="/instructions/:instructionId/" element={<InstructionSinglePage auth={auth} setAuth={setAuth}/>} />   
+                    <Route path="/burger-menu" element={<BurgerMenu auth={auth}/>} />    
+                    <Route path="*" element={<Home auth={auth} setAuth={setAuth}/>} />   
+                    <Route path="/login" element={<LoginPage handleSubmit={handleSubmit} login={login} password={password} setLogin={setLogin} setPassword={setPassword} auth={auth}/>}   />       
                 </Routes>
         </HashRouter>  
        

@@ -5,7 +5,7 @@ function LoadListFirmwares(props){
     const [items, setItems] = useState();
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-
+    
     useEffect(() => {
         axios.get("https://firmfare.herokuapp.com/api/firmware/?format=json")
         .then(response => response.data)
@@ -25,7 +25,7 @@ function LoadListFirmwares(props){
     } else { 
     return(
         <div className="container is-fluid mt-4">
-            <p> Файлы прошивок</p>
+            <p> Файлы :</p>
             <ul className="mt-2"> 
                     {                      
                         items.map(firmware => {

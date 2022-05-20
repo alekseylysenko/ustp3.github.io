@@ -1,11 +1,15 @@
-import NavBarMain from './NavBarMain.js'
+import NavBarMain from './NavBarMain.js';
 
-function Home(){
+function Home(props){
+    
+
     return(
         <div>
-              <NavBarMain />
+              <NavBarMain auth={props.auth} setAuth={props.setAuth}/>
               <div className='container is-fluid mt-4'>
-                 Home
+                <div className='box'>
+                  Главная
+                </div>
              </div>
         </div>
     );
