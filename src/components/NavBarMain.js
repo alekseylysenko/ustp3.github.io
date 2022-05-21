@@ -22,6 +22,9 @@ function NavBarMain(props){
     const goLogin = () => {
         navigate("/login",)
     }
+    const goRegistration = () => {
+        navigate("/registration");
+    }
     const goLogout = () => {
         props.setAuth(false);
         localStorage.setItem('my-name', '');
@@ -122,7 +125,7 @@ function NavBarMain(props){
                            : <><a className="button is-light" onClick={goLogin}>
                                 Вход
                             </a> 
-                            <a className="button is-info" >
+                            <a className="button is-info" onClick={goRegistration}>
                                 <strong>Регистрация</strong>
                             </a>  </>
                             }

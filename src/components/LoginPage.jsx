@@ -5,30 +5,14 @@ import NavBarMain from './NavBarMain.js';
 
 function LoginPage(props){
   
-    // const [login, setLogin] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [error, setError] = useState(null);
     const navigate = useNavigate();
     useEffect(() => {
       if(props.auth === true){
           navigate('/instructions');
       }
-   
-    },)
-    // const handleSubmit = () =>{
-    //     axios.post('https://firmwarertk.herokuapp.com/auth/jwt/create/', {
-    //         username: login,
-    //         password: password
-    //       })
-    //       .then((response) => {
-    //         localStorage.setItem('my-name', response.data.access);
-    //         // localStorage.setItem('isAuth', 'true');
-    //         navigate('/instructions');
-    //       },(error) => {
-    //         setError(error)     
-    //         }
-    //     );
-    // }
+    },
+    )
+
     return(
         <div>
             <NavBarMain auth={props.auth} setAuth={props.setAuth}/>

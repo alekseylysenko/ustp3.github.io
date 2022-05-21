@@ -1,5 +1,5 @@
 import { HashRouter, Route, Routes} from "react-router-dom";
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import Profile from './Profile.jsx';
 import Firmwares from './Firmwares.js';
 import Instructions from './Instructions.js';
@@ -9,6 +9,7 @@ import InstructionSinglePage from './InstructionSinglePage.js';
 import LoginPage from './LoginPage';
 import axios from 'axios';
 import Logout from './Logout';
+import Registration from './Registration';
 
 function Main(){
     const [auth, setAuth] = useState('false');
@@ -38,10 +39,12 @@ function Main(){
                 <Routes>       
                     <Route path="/ustp3.github.io" element={<Home auth={auth} setAuth={setAuth}/> } />
                     {
-                        (auth === true)
+                        (localStorage.getItem('isAuth') === 'true')
                         ?<Route path="/profile" element={<Profile auth={auth} setAuth={setAuth}/> } />
                         :<Route path="/logout" element={<Logout auth={auth} setAuth={setAuth}/>} />
-                    }                                   
+                    }   
+                   
+                    <Route path="/registration" element={<Registration auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/firmwares" element={<Firmwares auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/instructions" element={<Instructions auth={auth} setAuth={setAuth}/>} />   
                     <Route path="/instructions/:instructionId/" element={<InstructionSinglePage auth={auth} setAuth={setAuth}/>} />   
