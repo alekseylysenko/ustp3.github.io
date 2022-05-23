@@ -14,8 +14,9 @@ function Profile(props){
         .then((response) => {
             setUser(response.username);
             setEmail(response.email);
+            console.log(user)
         })
-    }, [])
+    }, [user])
     return(
         <div>
             <NavBarMain auth={props.auth} setAuth={props.setAuth}/>
