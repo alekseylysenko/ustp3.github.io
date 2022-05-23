@@ -56,7 +56,7 @@ function NavBarMain(props){
             <div id="navbarBasicExample" className="navbar-menu">
             <Menu auth={auth}/>
 
-            <AuthNavBar auth={auth}/>
+            <AuthNavBar auth={auth} setAuth={setAuth}/>
             </div>
         </nav>
         <div style={divStyle}>
