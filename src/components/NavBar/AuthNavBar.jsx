@@ -11,7 +11,7 @@ function AuthNavBar(props){
     }
     const goLogout = () => {
         props.setAuth(false);
-        localStorage.setItem('my-name', '');
+        localStorage.setItem('my-token', '');
         localStorage.setItem('isAuth', false);
         navigate("/logout"); 
     }
