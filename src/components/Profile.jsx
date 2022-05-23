@@ -8,12 +8,11 @@ function Profile(props){
     useEffect(() => {
         axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
        { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
-      
-        
         )
-        .then((response) => {
-            setUser(response.username);
-            setEmail(response.email);
+        .then(response => response.data)
+        .then((result) => {
+            setUser(result.username);
+            setEmail(result.email);
             console.log(user)
         })
     }, [user])
