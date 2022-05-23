@@ -5,6 +5,9 @@ import axios from 'axios';
 function Profile(props){
     const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
         axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
        { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
@@ -13,7 +16,11 @@ function Profile(props){
         .then((result) => {
             setUser(result.username);
             setEmail(result.email);
+            setIsLoaded(true);  
             console.log(user)
+        },(error) => {
+            setIsLoaded(true);
+            setError(error);
         })
     }, [user])
     return(
