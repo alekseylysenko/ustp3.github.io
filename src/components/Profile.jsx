@@ -6,7 +6,11 @@ function Profile(props){
     const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     useEffect(() => {
-        axios.get('https://firmwarertk.herokuapp.com/auth/users/me',{ 'Bearer Token' : localStorage.getItem('my-token')} )
+        axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
+    
+           { Authorization : `Bearer + ${localStorage.getItem('my-token')}`}
+        
+        )
         .then((response) => {
             setUser(response.username);
             setEmail(response.email);
