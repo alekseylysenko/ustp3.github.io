@@ -7,8 +7,8 @@ function Profile(props){
     const [email, setEmail] = useState('');
     useEffect(() => {
         axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
-    
-           { Authorization : `Bearer + ${localStorage.getItem('my-token')}`}
+       { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
+      
         
         )
         .then((response) => {
