@@ -24,7 +24,8 @@ function Main(){
             password: password
           })
           .then((response) => {
-            localStorage.setItem('my-name', response.data.access);
+
+            localStorage.setItem('my-token', response.data.access);
             localStorage.setItem('isAuth', 'true');
             setAuth( localStorage.getItem('isAuth') === 'true')         
             console.log(auth)

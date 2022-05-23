@@ -2,6 +2,8 @@
 import {useState, useEffect} from 'react';
 import {  useNavigate } from 'react-router-dom';
 import BurgerMenu from './BurgerMenu.js';
+import Menu from './NavBar/Menu.jsx';
+import AuthNavBar from './NavBar/AuthNavBar.jsx';
 
 function NavBarMain(props){
     let navigate =  useNavigate();
@@ -13,27 +15,9 @@ function NavBarMain(props){
     },[])
     const[click, setClick] = useState(false);
     let burgerButton;
-    const goInstructions = () => {
-        navigate("/instructions");
-      };
-    const goFirmwares = () => {
-    navigate("/firmwares");
-    };
-    const goLogin = () => {
-        navigate("/login",)
-    }
-    const goRegistration = () => {
-        navigate("/registration");
-    }
-    const goLogout = () => {
-        props.setAuth(false);
-        localStorage.setItem('my-name', '');
-        localStorage.setItem('isAuth', false);
-        navigate("/logout"); 
-    }
-    const goAdmin= () => {
-        navigate("/profile");
-    }
+    
+   
+   
     const goHome = () => {
         navigate("/ustp3.github.io");
         };
@@ -70,68 +54,9 @@ function NavBarMain(props){
             </div>
 
             <div id="navbarBasicExample" className="navbar-menu">
-                <div className="navbar-start">
-                    <a className="navbar-item" onClick={goHome}>
-                        Главная
-                    </a>
-                  
-                    <a className="navbar-item" onClick={goFirmwares} >
-                        Прошивки
-                    </a>
-                   
-                    <a className="navbar-item" onClick={goInstructions} >
-                    Инструкции
-                    </a>
-                 {
-                     (auth === true)
-                     ?<a className="navbar-item" onClick={goAdmin} >
-                        Профиль
-                    </a> 
-                    : <></>
-                 }
-                    
+            <Menu auth={auth}/>
 
-                    <div className="navbar-item has-dropdown is-hoverable">
-                        <a className="navbar-link" >
-                        Ещё
-                        </a>
-
-                        <div className="navbar-dropdown">
-                        <a className="navbar-item" >
-                            About
-                        </a>
-                        <a className="navbar-item">
-                            Jobs
-                        </a>
-                        <a className="navbar-item">
-                            Contact
-                        </a>
-                        <hr className="navbar-divider"/>
-                        <a className="navbar-item" >
-                            Report an issue
-                        </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="navbar-end">
-                    <div className="navbar-item">
-                        <div className="buttons">
-                             
-                         {   (auth === true)                                          
-                           ? <a className="button is-light" onClick={goLogout}>
-                                Выход
-                            </a>
-                           : <><a className="button is-light" onClick={goLogin}>
-                                Вход
-                            </a> 
-                            <a className="button is-info" onClick={goRegistration}>
-                                <strong>Регистрация</strong>
-                            </a>  </>
-                            }
-                        </div>
-                    </div>
-                </div>
+            <AuthNavBar auth={auth}/>
             </div>
         </nav>
         <div style={divStyle}>
