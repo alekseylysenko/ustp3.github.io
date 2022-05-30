@@ -1,8 +1,14 @@
 import NavBarMain from './NavBarMain';
 import {useNavigate} from 'react-router-dom';
-function Logout(){
-    let navigate = useNavigate();
+import {useEffect} from 'react';
 
+function Logout(props){
+    let navigate = useNavigate();
+    useEffect(() => {
+      return () => {
+        props.setAuth = false
+      };
+    },)
     const onLogin = () => {
         navigate('/login')
     }
