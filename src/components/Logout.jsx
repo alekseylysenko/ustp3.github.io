@@ -4,8 +4,7 @@ import {useEffect} from 'react';
 
 function Logout(props){
     let navigate = useNavigate();
-    useEffect(() => {
-      
+    useEffect(() => {     
         props.setAuth(false)
   
     },)
@@ -14,7 +13,7 @@ function Logout(props){
     }
     return(
         <div>
-            <NavBarMain/>
+            <NavBarMain  auth={props.auth} setAuth={props.setAuth}/>
             <div className='container is-fluid mt-4'>
               Нет авторизации на сайте! Нажмите <a onClick={() => onLogin()}>войти</a> 
             </div>
