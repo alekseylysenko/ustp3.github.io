@@ -60,7 +60,7 @@ function NavBarMain(props){
             </div>
         </nav>
         <div style={divStyle}>
-            <BurgerMenu auth={props.auth} setAuth={props.setAuth} />
+            <BurgerMenu auth={auth} setAuth={setAuth} />
         </div>
         </>
     );
