@@ -29,7 +29,10 @@ function BurgerMenu(){
             </div>
             <hr/>
             <div  className='is-flex is-justify-content-center mt-2'>
-                <a>Еще</a>
+               <div className='columns'>
+                   <div className='column'><a href="">Войти</a></div>
+                   <div className='column'><a href="">Регистрация</a></div>
+               </div>
             </div>
             <hr/>
             </div>

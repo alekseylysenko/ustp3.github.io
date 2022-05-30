@@ -44,7 +44,7 @@ function Main(){
                         ?<Route path="/profile" element={<Profile auth={auth} setAuth={setAuth}/> } />
                         :<Route path="/logout" element={<Logout auth={auth} setAuth={setAuth}/>} />
                     }   
-                   
+                    <Route path="/logout" element={<Logout auth={auth} setAuth={setAuth}/>} />
                     <Route path="/registration" element={<Registration auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/firmwares" element={<Firmwares auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/instructions" element={<Instructions auth={auth} setAuth={setAuth}/>} />   
