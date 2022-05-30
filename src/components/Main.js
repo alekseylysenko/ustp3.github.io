@@ -4,6 +4,7 @@ import Profile from './Profile.jsx';
 import Firmwares from './Firmwares.js';
 import Instructions from './Instructions.js';
 import Home from './Home.js';
+
 import InstructionSinglePage from './InstructionSinglePage.js';
 import LoginPage from './LoginPage';
 import axios from 'axios';

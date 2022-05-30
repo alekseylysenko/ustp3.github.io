@@ -1,10 +1,17 @@
 import NavBarMain from './NavBarMain';
 import { useState} from 'react';
+import axios from 'axios';
 function Registration(){
     const [login, setLogin] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const handleSubmit = () =>{
-
+        axios.post('https://firmwarertk.herokuapp.com/auth/users/', {
+            username: login,
+            password: password,
+            email: email,
+        });
+        
     }
     return(
         <div>
@@ -17,6 +24,10 @@ function Registration(){
                     <label>
                         Логин:
                         <input type="text" value={login} className='input mt-2'  onChange={(e) => setLogin(e.target.value)} />
+                    </label>                   
+                    <label>
+                        Email:
+                        <input type="email" value={email} className='input mt-2'  onChange={(e) => setEmail(e.target.value)} />
                     </label>
                     <label>
                         Пароль:
