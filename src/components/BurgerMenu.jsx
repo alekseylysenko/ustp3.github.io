@@ -36,9 +36,10 @@ function BurgerMenu(props){
             <hr/>
             {
              (props.auth === true)
-             ?<><a className="navbar-item" onClick={goAdmin} >
+             ?<>
+              <div  className='is-flex is-justify-content-center'><a className="navbar-item" onClick={goAdmin} >
                 Профиль
-            </a>  <hr/></> 
+            </a> </div> <hr/></> 
             : <></>
          }
             <div  className='is-flex is-justify-content-center'>
