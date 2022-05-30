@@ -5,13 +5,13 @@ import NavBarMain from './NavBarMain.js';
 
 function LoginPage(props){
   
-    const navigate = useNavigate();
-    useEffect(() => {
-      if(props.auth === true){
-          navigate('/instructions');
-      }
-    },
-    )
+    // const navigate = useNavigate();
+    // useEffect(() => {
+    //   if(props.auth === true){
+    //       navigate('/instructions');
+    //   }
+    // },
+    // )
 
     return(
         <div>

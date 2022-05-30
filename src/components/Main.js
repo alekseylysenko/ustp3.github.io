@@ -18,7 +18,7 @@ function Main(){
     const [error, setError] = useState(null);
 
 
-    const handleSubmit = () =>{
+    const handleSubmit = () => {
         axios.post('https://firmwarertk.herokuapp.com/auth/jwt/create/', {
             username: login,
             password: password
