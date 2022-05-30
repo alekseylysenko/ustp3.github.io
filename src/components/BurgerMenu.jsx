@@ -6,6 +6,9 @@ function BurgerMenu(props){
     const goInstructions = () => {
         navigate("/instructions");
     }
+    const goAdmin= () => {
+        navigate("/profile");
+    }
     const goFirmwares = () => {
         navigate("/firmwares");
     }
@@ -31,6 +34,13 @@ function BurgerMenu(props){
                 <a onClick={goHome}>Главная</a>
             </div>
             <hr/>
+            {
+             (props.auth === true)
+             ?<><a className="navbar-item" onClick={goAdmin} >
+                Профиль
+            </a>  <hr/></> 
+            : <></>
+         }
             <div  className='is-flex is-justify-content-center'>
                 <a onClick={goFirmwares}>Прошивки</a>
             </div>
