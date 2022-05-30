@@ -5,9 +5,9 @@ import {useEffect} from 'react';
 function Logout(props){
     let navigate = useNavigate();
     useEffect(() => {
-      return () => {
-        props.setAuth = false
-      };
+      
+        props.setAuth(false)
+  
     },)
     const onLogin = () => {
         navigate('/login')
