@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {useState, useEffect} from 'react';
 import {  useNavigate } from 'react-router-dom';
-import BurgerMenu from './BurgerMenu.js';
+import BurgerMenu from './BurgerMenu';
 import Menu from './NavBar/Menu.jsx';
 import AuthNavBar from './NavBar/AuthNavBar.jsx';
 

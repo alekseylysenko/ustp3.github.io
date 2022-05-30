@@ -4,7 +4,7 @@ function AuthNavBar(props){
 
     let navigate =  useNavigate();
     const goLogin = () => {
-        navigate("/login",)
+        navigate("/login");
     }
     const goRegistration = () => {
         navigate("/registration");
