@@ -49,7 +49,7 @@ function Main(){
                     <Route path="/firmwares" element={<Firmwares auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/instructions" element={<Instructions auth={auth} setAuth={setAuth}/>} />   
                     <Route path="/instructions/:instructionId/" element={<InstructionSinglePage auth={auth} setAuth={setAuth}/>} />   
-                    <Route path="/burger-menu" element={<BurgerMenu auth={auth}/>} />    
+                   
                     <Route path="/login" element={<LoginPage handleSubmit={handleSubmit} login={login} password={password} setLogin={setLogin} setPassword={setPassword} auth={auth}/>} />  
                     <Route path="*" element={<Home auth={auth} setAuth={setAuth}/>} />        
                 </Routes>

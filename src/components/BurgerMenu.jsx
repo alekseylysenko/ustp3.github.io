@@ -3,6 +3,7 @@ import {  useNavigate} from 'react-router-dom';
 
 function BurgerMenu(props){
     let navigate =  useNavigate();
+   
     const goInstructions = () => {
         navigate("/instructions");
     }
@@ -31,23 +32,25 @@ function BurgerMenu(props){
         <div>
             <div className='container box'>
             <div  className='is-flex is-justify-content-center '>
-                <a onClick={goHome}>Главная</a>
+                <a onClick={goHome} className="navbar-item">Главная</a>
             </div>
             <hr/>
             {
              (props.auth === true)
              ?<>
-              <div  className='is-flex is-justify-content-center'><a className="navbar-item" onClick={goAdmin} >
-                Профиль
-            </a> </div> <hr/></> 
+              <div  className='is-flex is-justify-content-center'>
+                    <a className="navbar-item" onClick={goAdmin} >
+                        Профиль
+                    </a> 
+            </div> <hr/></> 
             : <></>
          }
             <div  className='is-flex is-justify-content-center'>
-                <a onClick={goFirmwares}>Прошивки</a>
+                <a className="navbar-item" onClick={goFirmwares}>Прошивки</a>
             </div>
             <hr/>
             <div  className='is-flex is-justify-content-center mt-2'>
-                <a onClick={goInstructions}>Инструкции</a>
+                <a  className="navbar-item" onClick={goInstructions}>Инструкции</a>
             </div>
             <hr/>
             <div  className='is-flex is-justify-content-center mt-2'>
