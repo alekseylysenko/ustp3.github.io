@@ -61,15 +61,17 @@ function Main(){
                     {
                         (localStorage.getItem('isAuth') === 'true')
                         ?<Route path="/profile" element={<Profile auth={auth} setAuth={setAuth}/> } />
-                        :<Route path="/logout" element={<Logout auth={auth} setAuth={setAuth}/>} />
-                    }   
-                    <Route path="/logout" element={<Logout auth={auth} setAuth={setAuth}/>} />
+                        :<Route path="/login" element={<LoginPage handleSubmit={handleSubmit} login={login} password={password} setLogin={setLogin} setPassword={setPassword} auth={auth}/>} />        
+                    }                      
                     <Route path="/registration" element={<Registration auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/firmwares" element={<Firmwares auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/instructions" element={<Instructions auth={auth} setAuth={setAuth}/>} />   
-                    <Route path="/instructions/:instructionId/" element={<InstructionSinglePage auth={auth} setAuth={setAuth}/>} />    
-                    <Route path="/login" element={<LoginPage handleSubmit={handleSubmit} login={login} password={password} setLogin={setLogin} setPassword={setPassword} auth={auth}/>} />  
+                    <Route path="/instructions/:instructionId/" element={<InstructionSinglePage auth={auth} setAuth={setAuth}/>} />                       
                     <Route path="*" element={<Home auth={auth} setAuth={setAuth}/>} />        
+                    if(localStorage.getItem('isAuth') === 'true')
+                          <Route path="/logout" element={<Logout auth={auth} setAuth={setAuth}/>} />
+                          <Route path="/registration" element={<Registration auth={auth} setAuth={setAuth}/>} />   
+
                 </Routes>
         </HashRouter>  
        
