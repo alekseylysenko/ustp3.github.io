@@ -18,17 +18,7 @@ function Main(){
     const [error, setError] = useState(null);
     const [items, setItems] = useState();
 
-    useEffect(() => {
-        axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
-        { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
-        ) 
-        .then(response => setItems(response.code));
-        console.log(items);
-        if(items === 'token_not_valid'){
-            setAuth(false);
-            localStorage.setItem('isAuth', 'false') 
-        }
-    },[auth, items]);
+    
 
     const handleSubmit = () => {
         axios.post('https://firmwarertk.herokuapp.com/auth/jwt/create/', {
@@ -40,13 +30,30 @@ function Main(){
             localStorage.setItem('my-token', response.data.access);
             localStorage.setItem('isAuth', 'true');
             setAuth( localStorage.getItem('isAuth') === 'true')         
-            console.log(auth)
+     
           },(error) => {
             setError(error)     
             }
         );
     }
-  
+    useEffect(() => {
+        axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
+        { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
+        ) 
+        .then(response => response.data)
+        .then((result) => {
+            setItems(result);
+         
+        },(error) => {
+           if(error.response.status === 401){
+            localStorage.setItem('isAuth', 'false');
+            setAuth(false);
+           }
+        })
+        
+      
+    },[auth, items, error]);
+
     return(
         <HashRouter  basename="/" >
                 <Routes>       
