@@ -1,5 +1,5 @@
 import { HashRouter, Route, Routes} from "react-router-dom";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Profile from './Profile.jsx';
 import Firmwares from './Firmwares.js';
 import Instructions from './Instructions.js';
@@ -16,7 +16,21 @@ function Main(){
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const [items, setItems] = useState();
 
+    useEffect(() => {
+        axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
+        { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
+        ) 
+        .then(response => response.data)
+        .then((result) => {
+            setItems(result.code)
+        })
+        if(items === 'token_not_valid'){
+            setAuth(false);
+            localStorage.setItem('isAuth', 'false') 
+        }
+    },[auth, items]);
 
     const handleSubmit = () => {
         axios.post('https://firmwarertk.herokuapp.com/auth/jwt/create/', {
