@@ -22,10 +22,8 @@ function Main(){
         axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
         { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
         ) 
-        .then(response => response.data)
-        .then((result) => {
-            setItems(result.code)
-        })
+        .then(response => setItems(response.code));
+        console.log(items);
         if(items === 'token_not_valid'){
             setAuth(false);
             localStorage.setItem('isAuth', 'false') 
