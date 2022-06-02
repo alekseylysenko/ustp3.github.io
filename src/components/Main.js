@@ -29,7 +29,7 @@ function Main(){
 
             localStorage.setItem('my-token', response.data.access);
             localStorage.setItem('isAuth', 'true');
-            setAuth( localStorage.getItem('isAuth') === 'true')         
+            setAuth(true);         
      
           },(error) => {
             setError(error)     
