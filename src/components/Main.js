@@ -15,7 +15,7 @@ function Main(){
     const [auth, setAuth] = useState('false');
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
     const [items, setItems] = useState();
 
     
@@ -61,7 +61,7 @@ function Main(){
                     {
                         (localStorage.getItem('isAuth') === 'true')
                         ?<Route path="/profile" element={<Profile auth={auth} setAuth={setAuth}/> } />
-                        :<Route path="/login" element={<LoginPage handleSubmit={handleSubmit} login={login} password={password} setLogin={setLogin} setPassword={setPassword} auth={auth}/>} />        
+                        :<Route path="/login" element={<LoginPage handleSubmit={handleSubmit} login={login} password={password} setLogin={setLogin} setPassword={setPassword} auth={auth} error={error}/>} />        
                     }                      
                     <Route path="/registration" element={<Registration auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/firmwares" element={<Firmwares auth={auth} setAuth={setAuth}/>} />    
