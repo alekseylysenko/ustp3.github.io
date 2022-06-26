@@ -36,23 +36,23 @@ function Main(){
             }
         );
     }
-    useEffect(() => {
-        axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
-        { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
-        ) 
-        .then(response => response.data)
-        .then((result) => {
-            setItems(result);
+    // useEffect(() => {
+    //     axios.get('https://firmwarertk.herokuapp.com/auth/users/me',
+    //     { headers: { Authorization: `Bearer ${localStorage.getItem('my-token')}` }}
+    //     ) 
+    //     .then(response => response.data)
+    //     .then((result) => {
+    //         setItems(result);
          
-        },(error) => {
-           if(error.response.status === 401){
-            localStorage.setItem('isAuth', 'false');
-            setAuth(false);
-           }
-        })
+    //     },(error) => {
+    //        if(error.response.status === 401){
+    //         localStorage.setItem('isAuth', 'false');
+    //         setAuth(false);
+    //        }
+    //     })
         
       
-    },[auth, items, error]);
+    // },[auth, items, error]);
 
     return(
         <HashRouter  basename="/" >
@@ -61,7 +61,7 @@ function Main(){
                     {
                         (localStorage.getItem('isAuth') === 'true')
                         ?<Route path="/profile" element={<Profile auth={auth} setAuth={setAuth}/> } />
-                        :<Route path="/login" element={<LoginPage handleSubmit={handleSubmit} login={login} password={password} setLogin={setLogin} setPassword={setPassword} auth={auth} error={error}/>} />        
+                        :<Route path="/login" element={<LoginPage handleSubmit={handleSubmit} login={login} password={password} setLogin={setLogin} setPassword={setPassword} auth={auth} error={error} setError={setError}/>} />        
                     }                      
                     <Route path="/registration" element={<Registration auth={auth} setAuth={setAuth}/>} />    
                     <Route path="/firmwares" element={<Firmwares auth={auth} setAuth={setAuth}/>} />    

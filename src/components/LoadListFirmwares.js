@@ -26,6 +26,7 @@ function LoadListFirmwares(props){
     return(
         <div className="container is-fluid mt-4">
             <p> Файлы :</p>
+           
             <ul className="mt-2"> 
                     {                      
                         items.map(firmware => {

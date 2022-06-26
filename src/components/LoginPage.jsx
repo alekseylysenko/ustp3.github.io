@@ -10,10 +10,10 @@ function LoginPage(props){
       if(props.auth === true){
           navigate('/instructions');
       }
+      
     },
     [navigate, props])
 
-    
     return(
         <div>
             <NavBarMain auth={props.auth} setAuth={props.setAuth}/>
@@ -33,10 +33,13 @@ function LoginPage(props){
                     <input type="submit" value="Войти" className='button is-info mt-3'/>
                 </form>
                 <div>
-                    { (props.error.code === 'ERR_BAD_REQUEST')
-                        ? <p>Не верный логин или пароль!</p>     
+                  {   (props.error.code === 'ERR_BAD_REQUEST')
+                        ? <><p>Не верный логин или пароль!</p>
+                            {() => props.setError(undefined)}
+                         </>
                         : <p></p>
-                    }
+                        }
+      
                 </div>
                 </div>
                 
