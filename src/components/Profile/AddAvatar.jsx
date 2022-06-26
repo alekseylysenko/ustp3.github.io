@@ -8,6 +8,8 @@ function AddAvatar(props){
     const postHandler = () => {
         var formData = new FormData();
         formData.append("avatar", avatar);
+        formData.append("firstName", firstName);
+        formData.append("lastName", lastName);
         axios.put(`https://firmwarertk.herokuapp.com/api/profiles/1`,  { 
             headers: {"Content-Type": "multipart/form-data", Authorization: `Bearer ${localStorage.getItem('my-token')}` ,}, 
             data: formData,
